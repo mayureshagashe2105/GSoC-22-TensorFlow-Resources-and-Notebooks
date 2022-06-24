@@ -1,5 +1,8 @@
 # GSoC'22 @ TensorFlow
-![image]("./assets/images/GSoc'22 @ TensorFlow.png")
+
+<p align="center">
+<img src="assets/images/iamger.png" alt="image"/>
+</p>
 
 
 ## Project Details:
