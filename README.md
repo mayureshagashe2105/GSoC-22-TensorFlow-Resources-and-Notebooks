@@ -1,2 +1,30 @@
-# GSoC-22-TensorFlow-Resources-and-Notebooks
-GSoC'22 @ TensorFlow Notebooks, Code and much more
+# GSoC'22 @ TensorFlow
+![image]("./assets/images/GSoc'22 @ TensorFlow.png")
+
+
+## Project Details:
+
+### Develop Healthcare examples using TensorFlow
+This project is a part of Google Summer of Code 2022.
+
+[GSoC'22 @ TensorFlow Project Link](https://summerofcode.withgoogle.com/programs/2022/projects/2HAC6oqy)
+
+### Project Mentor:
+- **[Josh Gordon](https://twitter.com/random_forests)**
+
+## Objective
+
+Developing healthcare examples to showcase various use cases of deep learning algorithms and their applications. These sample notebooks will provide students as well as the researchers an overview of the working of deep learning algorithms in real-time scenarios. Further, these trained models will be primarily used on a web-inference engine (currently under development) for underfunded medical sectors.
+
+## Timeline
+
+### Pseudo-segmentation of Prostate Gland Cancer
+
+### Week 1:
+#### Tasks
+- [x] Understanding the structure of the data and tiff files.
+- [x] Dataset is hosted on kaggle and is very huge (412 GB). In order to get started, write a script to download the subset of the data from the kaggle environment.
+- [x] Perform basic EDA.
+- [x] Design custom data generators to ingest the data at the patch-level and benchmark the data generators.
+- [x] Train a baseline model.
+- [x] Create fake segmentation/color maps on the basis of classification results from the baseline model.
