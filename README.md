@@ -31,4 +31,4 @@ Developing healthcare examples to showcase various use cases of deep learning al
 - [x] Design custom data generators to ingest the data at the patch-level and benchmark the data generators.
 - [x] Train a baseline model.
 - [x] Create fake segmentation/color maps on the basis of classification results from the baseline model.
-- [x] Optimize the Datagenerators for level 0 patch extraction.
+- [ ] Optimize the Datagenerators for level 0 patch extraction.
