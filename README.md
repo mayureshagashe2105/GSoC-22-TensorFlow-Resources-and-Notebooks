@@ -23,7 +23,7 @@ Developing healthcare examples to showcase various use cases of deep learning al
 
 ### Pseudo-segmentation of Prostate Gland Cancer
 
-### Week 1:
+### Week 1 - 2:
 #### Tasks
 - [x] Understanding the structure of the data and tiff files.
 - [x] Dataset is hosted on kaggle and is very huge (412 GB). In order to get started, write a script to download the subset of the data from the kaggle environment.
@@ -31,4 +31,6 @@ Developing healthcare examples to showcase various use cases of deep learning al
 - [x] Design custom data generators to ingest the data at the patch-level and benchmark the data generators.
 - [x] Train a baseline model.
 - [x] Create fake segmentation/color maps on the basis of classification results from the baseline model.
-- [ ] Optimize the Datagenerators for level 0 patch extraction.
+- [x] Optimize the Datagenerators for level 0 patch extraction.
+- [x] Add `write to disk` functionality to Datagenerators.
+- [x] Map classification results at higer resolution to segmentation map at a lower resolution.
