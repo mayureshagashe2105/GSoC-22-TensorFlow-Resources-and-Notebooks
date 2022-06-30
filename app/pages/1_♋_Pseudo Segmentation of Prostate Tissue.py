@@ -18,24 +18,30 @@ if uploaded_WSI is not None:
     test = openslide.OpenSlide('./app/images/test_sub.tiff')
 
     st.sidebar.markdown("## Params for Inference")
-    index_level = st.sidebar.selectbox('Index_level', [0, 1, 2])
+    index_level = st.sidebar.selectbox('Index_level', [0, 1, 2], help="""Indicates at which levels the patches should 
+    be analyzed. 0: Highest Resolution (May be slower but accurate). 2: Lowest Resolution (May be Faster Compramising 
+    the accuracy""")
     seg_res = st.sidebar.checkbox('Show Segmented Results', True)
 
     cols = st.columns(2)
 
     with cols[0]:
-        x = int(cols[0].number_input('Width of Patch Size', 128, test.level_dimensions[index_level][0], step=1))
+        x = int(cols[0].number_input('Width of Patch Size', 128, test.level_dimensions[index_level][0], step=1,
+                                     help="""Width of the patch to extract from the image"""))
 
     with cols[1]:
-        y = int(cols[1].number_input('Height of Patch Size', 128, test.level_dimensions[index_level][1], step=1))
+        y = int(cols[1].number_input('Height of Patch Size', 128, test.level_dimensions[index_level][1], step=1,
+                help="""Height of the patch to extract from the image"""))
 
     cols1 = st.columns(2)
 
     with cols1[0]:
-        tissue_thresh = cols1[0].slider('Tissue Threshold %', 0.0, 1.0, step=0.01, value=0.35)
+        tissue_thresh = cols1[0].slider('Tissue Threshold %', 0.0, 1.0, step=0.01, value=0.35, help="""Percentage of 
+        tissue region in a patch to consider that patch to be valid""")
 
     with cols[1]:
-        confidence_level = cols1[1].slider('Confidence_level %', 0.5, 1.0, step=0.01, value=0.75)
+        confidence_level = cols1[1].slider('Confidence_level %', 0.5, 1.0, step=0.01, value=0.75, help="""Minimum 
+        value of the model's prediction score to classify any given patch as malignant""")
 
     sub = st.button('Get Inference')
 
