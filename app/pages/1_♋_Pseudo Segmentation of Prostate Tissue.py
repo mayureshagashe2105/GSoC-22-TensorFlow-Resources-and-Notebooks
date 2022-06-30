@@ -4,7 +4,7 @@ import openslide
 from services.PANDASegmentation import *
 
 st.set_page_config(page_title="PANDA Segmentation",
-                   page_icon="./images/tf_icon.png", layout='wide', initial_sidebar_state="expanded")
+                   page_icon="./app/images/tf_icon.png", layout='wide', initial_sidebar_state="expanded")
 
 st.title('Prostate Gland Cancer Segmentation Engine')
 st.sidebar.info('Set the parameters and upload the WSI to get the inference.')
@@ -13,9 +13,9 @@ uploaded_WSI = st.file_uploader("Upload the Whole Slide Image (WSI) of the Prost
 
 if uploaded_WSI is not None:
     tiff_encoded_image = uploaded_WSI.read()
-    with open('images/test_sub.tiff', 'wb') as f:
+    with open('./app/images/test_sub.tiff', 'wb') as f:
         f.write(tiff_encoded_image)
-    test = openslide.OpenSlide('images/test_sub.tiff')
+    test = openslide.OpenSlide('./app/images/test_sub.tiff')
 
     st.sidebar.markdown("## Params for Inference")
     index_level = st.sidebar.selectbox('Index_level', [0, 1, 2])
