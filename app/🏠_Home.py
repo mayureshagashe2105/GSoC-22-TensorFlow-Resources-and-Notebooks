@@ -6,7 +6,7 @@ st.set_page_config(page_title="GSoC'22 @ TensorFlow",
 st.title("Google Summer of Code'22 @ TensorFlow")
 header_cols = st.columns(3)
 with header_cols[1]:
-    header_cols[1].image('images/iamger.png')
+    header_cols[1].image('./app/images/iamger.png')
 
 with st.expander(" 📝 Project Details", expanded=True):
     st.markdown("""
