@@ -1,4 +1,4 @@
-streamlit~=1.10.0
-tensorflow~=2.6.2
-numpy~=1.19.5
-openslide-python~=1.2.0
+streamlit
+tensorflow
+numpy
+openslide-python
