@@ -35,3 +35,10 @@ Developing healthcare examples to showcase various use cases of deep learning al
 - [x] Optimize the Datagenerators for level 0 patch extraction.
 - [x] Add `write to disk` functionality to Datagenerators.
 - [x] Map classification results at higer resolution to segmentation map at a lower resolution.
+
+### Week 3-4:
+#### Tasks
+- [ ] Benchmarking the Input pipeline.
+- [ ] Depicting Diagramatic Explanantions.
+- [ ] Optimizing patch extraction process.
+- [ ] Try to simplify the codebase.
