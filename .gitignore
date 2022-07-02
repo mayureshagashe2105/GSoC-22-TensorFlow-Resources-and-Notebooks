@@ -1,2 +1,3 @@
 # PyCharm files
 .idea/
+./app/services/__pycache__/
