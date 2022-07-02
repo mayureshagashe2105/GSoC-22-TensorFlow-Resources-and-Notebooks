@@ -19,8 +19,8 @@ if uploaded_WSI is not None:
 
     st.sidebar.markdown("## Params for Inference")
     index_level = st.sidebar.selectbox('Index_level', [0, 1, 2], help="""Indicates at which levels the patches should 
-    be analyzed. 0: Highest Resolution (May be slower but accurate). 2: Lowest Resolution (May be Faster Compramising 
-    the accuracy""")
+    be analyzed. 0: Highest Resolution (May be slower but accurate). 2: Lowest Resolution (May be Faster by Compromising 
+    the accuracy)""")
     seg_res = st.sidebar.checkbox('Show Segmented Results', True)
 
     cols = st.columns(2)
@@ -31,7 +31,7 @@ if uploaded_WSI is not None:
 
     with cols[1]:
         y = int(cols[1].number_input('Height of Patch Size', 128, test.level_dimensions[index_level][1], step=1,
-                help="""Height of the patch to extract from the image"""))
+                                     help="""Height of the patch to extract from the image"""))
 
     cols1 = st.columns(2)
 
