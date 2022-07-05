@@ -39,6 +39,6 @@ Developing healthcare examples to showcase various use cases of deep learning al
 ### Week 3-4:
 #### Tasks
 - [x] Benchmarking the Input pipeline.
-- [ ] Depicting Diagramatic Explanantions.
+- [x] Depicting Diagramatic Explanantions.
 - [ ] Optimizing patch extraction process.
 - [x] Try to simplify the codebase.
