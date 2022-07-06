@@ -22,7 +22,11 @@ Developing healthcare examples to showcase various use cases of deep learning al
 ## Timeline
 
 ### Pseudo-segmentation of Prostate Gland Cancer
+App:
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mayureshagashe2105-gsoc-22-tensorflow-resources-app-home-nrud12.streamlitapp.com/)
+
+Blog Post:
+[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@mayureshagashe2105/gsoc22-tensorflow-pseudo-segmentation-of-prostate-gland-tissue-for-cancer-detection-6d5c45c7c46a)
 
 ### Week 1 - 2:
 #### Tasks
