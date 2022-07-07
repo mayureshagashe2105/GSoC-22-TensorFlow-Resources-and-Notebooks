@@ -46,3 +46,4 @@ Blog Post:
 - [x] Depicting Diagramatic Explanantions.
 - [ ] Optimizing patch extraction process.
 - [x] Try to simplify the codebase.
+- [x] Document what the approach used.
