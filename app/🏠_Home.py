@@ -1,12 +1,12 @@
 import streamlit as st
 
 st.set_page_config(page_title="GSoC'22 @ TensorFlow",
-                   page_icon="./app/images/tf_icon.png", layout='wide', initial_sidebar_state="expanded")
+                   page_icon="images/tf_icon.png", layout='wide', initial_sidebar_state="expanded")
 
 st.title("Google Summer of Code'22 @ TensorFlow")
 header_cols = st.columns(3)
 with header_cols[1]:
-    header_cols[1].image('./app/images/iamger.png')
+    header_cols[1].image('images/iamger.png')
 
 with st.expander(" 📝 Project Details", expanded=True):
     st.markdown("""
@@ -40,6 +40,6 @@ entire image at the patch level. The entire slide image is broken down into patc
 are then classified. If found positive, that patch in the original image is then masked, thereby, creating a fake 
 mask map.""")
 with st.expander('Render Results'):
-    st.image('./app/images/PandaSeg.png')
+    st.image('images/PandaSeg.png')
 
 

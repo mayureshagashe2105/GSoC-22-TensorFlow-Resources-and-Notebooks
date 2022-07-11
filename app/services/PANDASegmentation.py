@@ -34,7 +34,7 @@ class PANDASegmentation:
         p_bar.progress(prog + 1)
         prog += 1
 
-        model = PANDASegmentation.__get_model("./app/models/PANDA_pseudo_segmentation None.h5")
+        model = PANDASegmentation.__get_model("models/PANDA_pseudo_segmentation None.h5")
 
         info.empty()
         info.write('Accessing the image to read')
