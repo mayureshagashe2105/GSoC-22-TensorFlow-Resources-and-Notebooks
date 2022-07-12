@@ -44,6 +44,12 @@ Blog Post:
 #### Tasks
 - [x] Benchmarking the Input pipeline.
 - [x] Depicting Diagramatic Explanantions.
-- [ ] Optimizing patch extraction process.
+- [x] Optimizing patch extraction process.
 - [x] Try to simplify the codebase.
 - [x] Document the approach used.
+
+### Week 5:
+#### Tasks
+- [ ] MLPs with JAX
+- [ ] CNNs with JAX
+- [ ] ViTs with JAX
