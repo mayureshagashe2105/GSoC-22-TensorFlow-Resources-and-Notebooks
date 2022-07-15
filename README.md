@@ -50,6 +50,6 @@ Blog Post:
 
 ### Week 5:
 #### Tasks
-- [ ] MLPs with JAX. (Batch_mode)
+- [x] MLPs with JAX. (Batch_mode)
 - [ ] CNNs with JAX
 - [ ] ViTs with JAX
