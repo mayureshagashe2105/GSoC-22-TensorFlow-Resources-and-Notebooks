@@ -128,3 +128,4 @@ class MLP:
   def matmul_fn(x, y):
     return jnp.matmul(x, y)
 
+  
