@@ -53,3 +53,4 @@ Blog Post:
 - [x] MLPs with JAX (Batch_mode)
 - [ ] CNNs with JAX
 - [ ] ViTs with JAX
+- [ ] Apply the ViT to the Pseudo Segmentation  task.
