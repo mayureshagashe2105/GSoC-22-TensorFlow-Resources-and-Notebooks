@@ -24,10 +24,7 @@ Developing healthcare examples to showcase various use cases of deep learning al
 ### Pseudo-segmentation of Prostate Gland Cancer
 Demo:
 
-[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/75118658/179575223-7e9fbc52-6566-4342-842a-b2f4ebf0ba39.png)](https://storyxpress.co/video/l5r18t1gnctvh22eb)
-
-
-
+![974a7b7a126d0c_files_1658166108891-clapboard-l5r18t1gnctvh22eb_Trim_Trim](https://user-images.githubusercontent.com/75118658/179657270-71f45fa3-55d4-43fb-aeaf-bf4603180fa8.gif)
 
 App:
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mayureshagashe2105-gsoc-22-tensorflow-resources-app-home-nrud12.streamlitapp.com/)
@@ -58,6 +55,6 @@ Blog Post:
 ### Week 5:
 #### Tasks
 - [x] MLPs with JAX (Batch_mode)
-- [ ] CNNs with JAX
+- [x] CNNs with JAX
 - [ ] ViTs with JAX
 - [ ] Apply the ViT to the Pseudo Segmentation  task.
