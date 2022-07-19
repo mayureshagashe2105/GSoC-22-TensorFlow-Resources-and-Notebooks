@@ -24,7 +24,8 @@ Developing healthcare examples to showcase various use cases of deep learning al
 ### Pseudo-segmentation of Prostate Gland Cancer
 Demo:
 
-![974a7b7a126d0c_files_1658166108891-clapboard-l5r18t1gnctvh22eb_Trim_Trim](https://user-images.githubusercontent.com/75118658/179657270-71f45fa3-55d4-43fb-aeaf-bf4603180fa8.gif)
+![Untitled](https://user-images.githubusercontent.com/75118658/179668154-983e9d95-a324-4a1d-af9b-e67f17b97e15.gif)
+
 
 App:
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mayureshagashe2105-gsoc-22-tensorflow-resources-app-home-nrud12.streamlitapp.com/)
