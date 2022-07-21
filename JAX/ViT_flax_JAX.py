@@ -47,3 +47,18 @@ class MLP(nn.Module):
     elif self.activation == 'softplus': return nn.softplus(input)
     elif self.activation == 'swish': return nn.swish(input)
     elif self.activation == 'PRelu': return nn.PRelu(input)
+
+
+    
+class PatchEncoder(nn.Module):
+  num_patches: int
+  projection_dims: int
+
+  def setup(self):
+    self.projection = nn.Dense(self.projection_dims)
+    self.positional_encodings = nn.Embed(self.num_patches, self.projection_dims)
+  
+  def __call__(self, patch):
+    positions = jnp.arange(0, self.num_patches)
+    encode = self.projection(patch) + self.position_encodings(positions)
+    return encode
