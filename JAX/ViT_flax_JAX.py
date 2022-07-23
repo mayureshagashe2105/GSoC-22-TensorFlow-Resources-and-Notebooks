@@ -101,21 +101,22 @@ class VisionTransformer(nn.Module):
     self.transformer_units = [self.projection_dims * 2, self.projection_dims]
     self.num_patches = ((self.image_size[0] - self.patch_size[0]) // self.stride + 1) * ((self.image_size[1] - self.patch_size[1]) // self.stride + 1)
     
-    self.layer_norm = nn.LayerNorm(epsilon=1e-6)
+    self.norm = nn.LayerNorm(epsilon=1e-6)
     self.multi_head_attention = nn.MultiHeadDotProductAttention(num_heads=self.num_heads, qkv_features=self.projection_dims)
     self.dropout10 = nn.Dropout(0.1)
-    self.dropout50 = nn.Drupot(0.5)
+    self.dropout50 = nn.Dropout(0.5)
     self.logits = nn.Dense(self.num_classes)
 
     patches_init = ExtractPatches(self.patch_size, self.stride)
     encode_init = PatchEncoder(self.num_patches, self.projection_dims)
-    mlp_init = MLP(self.transformer_units)
-    mlp2_init = MLP(self.mlp_head_units)
+    mlp_init = MLP(self.transformer_units[::-1], self.activation)
+    mlp2_init = MLP(self.mlp_head_units[::-1], self.activation)
 
     self.patches = patches_init
     self.encode = encode_init
     self.mlp = mlp_init
     self.mlp2 = mlp2_init
+  
   
   @nn.compact
   def __call__(self, inputs):
@@ -125,17 +126,20 @@ class VisionTransformer(nn.Module):
     for _ in range(self.transformer_layers):
       x1 = self.norm(encoded_image_patches)
       attention_output = self.multi_head_attention(x1, x1)
-      x2 = VisionTransformer.layer_add(attention_output, encoded_image_patches)
+      x2 = attention_output + encoded_image_patches #VisionTransformer.layer_add(attention_output, encoded_image_patches)
       x3 = self.norm(x2)
+
       x3 = self.mlp(x3)
-      x3 = self.dropout10(x3)
-      encoded_image_patches = VisionTransformer.layer_add(x3, x2)
+      # x3 = self.dropout10(x3, deterministic=not True)
+      # print(x3.shape)
+      encoded_image_patches = x3 + x2 #VisionTransformer.layer_add(x3, x2)
     
     repr = self.norm(encoded_image_patches)
     repr = repr.reshape(-1,)
-    repr = self.dropout50(repr)
+    # repr = self.dropout50(repr, deterministic=not True)
     repr = self.mlp2(repr)
-    repr = self.dropout(repr)
+    # print(repr.shape)
+    # repr = self.dropout(repr, deterministic=not True)
     logit_nodes = self.logits(repr)
     logit_nodes = nn.softmax(logit_nodes)
 
