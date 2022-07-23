@@ -86,13 +86,11 @@ class VisionTransformer(nn.Module):
   patch_size: Sequence[int]
   stride: int
   image_size: Sequence[int]
-  # hidden_layer_nodes: Sequence[int]
   activation: str
   projection_dims: int
   num_heads: int
-  # Size of the transformer layers
   transformer_layers: int
-  mlp_head_units = Sequence[int]
+  mlp_head_units: Sequence[int]
   batch_size: int
   num_classes: int
   learning_rate: float
