@@ -4,6 +4,7 @@ import flax
 from flax.core import freeze, unfreeze
 from flax import linen as nn  # nn notation also used in PyTorch and in Flax's older API
 from flax.training import train_state
+from flax.linen.transforms import jit
 
 import optax
 
@@ -78,3 +79,73 @@ class ExtractPatches(nn.Module):
     patch_dims = patches.shape[-1]
     patches = tf.reshape(patches, [batch_size, -1, patch_dims])
     return patches
+
+  
+
+class VisionTransformer(nn.Module):
+  patch_size: Sequence[int]
+  stride: int
+  image_size: Sequence[int]
+  # hidden_layer_nodes: Sequence[int]
+  activation: str
+  projection_dims: int
+  num_heads: int
+  # Size of the transformer layers
+  transformer_layers: int
+  mlp_head_units = Sequence[int]
+  batch_size: int
+  num_classes: int
+  learning_rate: float
+
+
+
+  def setup(self):
+    self.transformer_units = [self.projection_dims * 2, self.projection_dims]
+    self.num_patches = ((self.image_size[0] - self.patch_size[0]) // self.stride + 1) * ((self.image_size[1] - self.patch_size[1]) // self.stride + 1)
+    
+    self.layer_norm = nn.LayerNorm(epsilon=1e-6)
+    self.multi_head_attention = nn.MultiHeadDotProductAttention(num_heads=self.num_heads, qkv_features=self.projection_dims)
+    self.dropout10 = nn.Dropout(0.1)
+    self.dropout50 = nn.Drupot(0.5)
+    self.logits = nn.Dense(self.num_classes)
+
+    patches_init = ExtractPatches(self.patch_size, self.stride)
+    encode_init = PatchEncoder(self.num_patches, self.projection_dims)
+    mlp_init = MLP(self.transformer_units)
+    mlp2_init = MLP(self.mlp_head_units)
+
+    self.patches = patches_init
+    self.encode = encode_init
+    self.mlp = mlp_init
+    self.mlp2 = mlp2_init
+  
+  @nn.compact
+  def __call__(self, inputs):
+    image_patches = self.patches(inputs)
+    encoded_image_patches = self.encode(image_patches)
+
+    for _ in range(self.transformer_layers):
+      x1 = self.norm(encoded_image_patches)
+      attention_output = self.multi_head_attention(x1, x1)
+      x2 = VisionTransformer.layer_add(attention_output, encoded_image_patches)
+      x3 = self.norm(x2)
+      x3 = self.mlp(x3)
+      x3 = self.dropout10(x3)
+      encoded_image_patches = VisionTransformer.layer_add(x3, x2)
+    
+    repr = self.norm(encoded_image_patches)
+    repr = repr.reshape(-1,)
+    repr = self.dropout50(repr)
+    repr = self.mlp2(repr)
+    repr = self.dropout(repr)
+    logit_nodes = self.logits(repr)
+    logit_nodes = nn.softmax(logit_nodes)
+
+    return logit_nodes
+
+
+
+  @staticmethod
+  @jit
+  def layer_add(x, y):
+    return jnp.add(x, y)
