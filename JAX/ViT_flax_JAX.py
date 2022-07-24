@@ -158,3 +158,22 @@ rng = jax.random.PRNGKey(0) # PRNG Key
 x = jnp.ones(shape=(256, 32, 32, 3)) # Dummy Input
 params = model.init(rng, x) # Initialize the parameters
 jax.tree_map(lambda x: x.shape, params) # Check the parameters
+
+
+def init_train_state(
+    model, random_key, shape, learning_rate
+):
+    # Initialize the Model
+    variables = model.init(random_key, jnp.ones(shape))
+    # Create the optimizer
+    optimizer = optax.adam(learning_rate)
+    # Create a State
+    return train_state.TrainState.create(
+        apply_fn = model.apply,
+        tx=optimizer,
+        params=variables['params']
+    )
+
+state = init_train_state(
+    model, rng, (64, 32, 32, 3), 0.001
+)
