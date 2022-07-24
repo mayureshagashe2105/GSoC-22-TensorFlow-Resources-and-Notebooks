@@ -151,3 +151,10 @@ class VisionTransformer(nn.Module):
   @jit
   def layer_add(x, y):
     return jnp.add(x, y)
+
+  
+  
+rng = jax.random.PRNGKey(0) # PRNG Key
+x = jnp.ones(shape=(256, 32, 32, 3)) # Dummy Input
+params = model.init(rng, x) # Initialize the parameters
+jax.tree_map(lambda x: x.shape, params) # Check the parameters
