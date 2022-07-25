@@ -57,5 +57,5 @@ Blog Post:
 #### Tasks
 - [x] MLPs with JAX (Batch_mode)
 - [x] CNNs with JAX
-- [ ] ViTs with JAX-Flax.
+- [x] ViTs with JAX-Flax.
 - [ ] Apply the ViT to the Segmentation task.
