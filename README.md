@@ -59,3 +59,8 @@ Blog Post:
 - [x] CNNs with JAX
 - [x] ViTs with JAX-Flax.
 - [ ] Apply the ViT to the Segmentation task.
+
+### Week 6:
+##### Tasks
+- [ ] Figure out how to use ViTs with patch based learning.
+- [ ] Fix bug in score function from ViT.
