@@ -64,3 +64,4 @@ Blog Post:
 ##### Tasks
 - [ ] Figure out how to use ViTs with patch based learning.
 - [ ] Fix bug in score function from ViT.
+- [ ] Use optax for optimizer state handling.
