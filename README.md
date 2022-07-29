@@ -63,5 +63,5 @@ Blog Post:
 ### Week 6:
 ##### Tasks
 - [x] Figure out how to use ViTs with patch based learning.
-- [ ] Fix bug in score function from ViT.
+- [x] Fix bug in score function from ViT.
 - [ ] Use optax for optimizer state handling.
