@@ -177,3 +177,42 @@ def init_train_state(
 state = init_train_state(
     model, rng, (64, 32, 32, 3), 0.001
 )
+
+
+def compute_metrics(*, logits, gt_labels):
+    one_hot_gt_labels = jax.nn.one_hot(gt_labels, num_classes=100)
+    loss = -jnp.mean(jnp.sum(one_hot_gt_labels * logits, axis=-1))
+    accuracy = jnp.mean(jnp.argmax(logits, -1) == gt_labels)
+
+    metrics = {
+        'loss': loss,
+        'accuracy': accuracy,
+    }
+    return metrics
+  
+
+  @jax.jit
+def train_step(
+    state, image:jnp.ndarray, label:jnp.ndarray
+):
+
+
+    def loss_fn(params):
+        logits = model.apply({'params': params}, image)
+        one_hot_gt_labels = jax.nn.one_hot(label, num_classes=100)
+        loss = -jnp.mean(jnp.sum(one_hot_gt_labels * logits, axis=-1))
+        return loss, logits
+
+
+    gradient_fn = jax.value_and_grad(loss_fn, has_aux=True)
+    (_, logits), grads = gradient_fn(state.params)
+    state = state.apply_gradients(grads=grads)
+    metrics = compute_metrics(logits=logits, gt_labels=label)
+    return state, metrics
+
+
+@jax.jit
+def eval_step(state, batch):
+    image, label = batch
+    logits = state.apply_fn({'params': state.params}, image)
+    return compute_metrics(logits=logits, labels=label)
