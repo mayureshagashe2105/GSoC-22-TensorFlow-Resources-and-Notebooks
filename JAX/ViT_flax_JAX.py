@@ -216,3 +216,34 @@ def eval_step(state, batch):
     image, label = batch
     logits = state.apply_fn({'params': state.params}, image)
     return compute_metrics(logits=logits, labels=label)
+
+  
+def train_one_epoch(state, dataloader, epoch):
+  """Train for 1 epoch on the training set."""
+  batch_metrics = []
+  for cnt, (imgs, labels) in enumerate(dataloader):
+      print(cnt, end=" ")
+      state, metrics = train_step(state, imgs, labels)
+      batch_metrics.append(metrics)
+      print("\r", end = " ")
+  
+  # Aggregate the metrics
+  batch_metrics_np = jax.device_get(batch_metrics)  # pull from the accelerator onto host (CPU)
+  epoch_metrics_np = {
+      k: np.mean([metrics[k] for metrics in batch_metrics_np])
+      for k in batch_metrics_np[0]
+  }
+  return state, epoch_metrics_np
+
+
+seed = 0  # needless to say these should be in a config or defined like flags
+learning_rate = 0.001
+momentum = 0.9
+num_epochs = 2
+batch_size = 64
+
+train_state = state
+
+for epoch in range(1, num_epochs + 1):
+    train_state, train_metrics = train_one_epoch(train_state, gen, epoch)
+    print(f"Train epoch: {epoch}, loss: {train_metrics['loss']}, accuracy: {train_metrics['accuracy'] * 100}")
