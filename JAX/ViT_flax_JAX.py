@@ -236,7 +236,7 @@ def train_one_epoch(state, dataloader, epoch):
   return state, epoch_metrics_np
 
 
-seed = 0  # needless to say these should be in a config or defined like flags
+seed = 21  # needless to say these should be in a config or defined like flags
 learning_rate = 0.001
 momentum = 0.9
 num_epochs = 2
