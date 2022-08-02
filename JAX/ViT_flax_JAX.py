@@ -68,16 +68,17 @@ class ExtractPatches(nn.Module):
   patch_size: Sequence[int]
   stride: int
 
+  def setup(self) -> None:
+      return super().setup()
 
+  @nn.compact
   def __call__(self, inputs):
     batch_size = inputs.shape[0]
-    patches = tf.image.extract_patches(inputs, sizes=[1, self.patch_size[0], self.patch_size[1], 1],
-                                       strides=[1, self.stride, self.stride, 1],
-                                       rates=[1, 1, 1, 1],
-                                       padding="VALID"
-                                       )
+    patches = jax.lax.conv_general_dilated_patches(inputs[:, None, None, :], (1, self.patch_size[0], self.patch_size[1], 1), 
+                                                   (1, self.stride, self.stride, 1), 
+                                                   padding="VALID").reshape(batch_size, -1, self.patch_size[0] * self.patch_size[1] * inputs.shape[-1])
     patch_dims = patches.shape[-1]
-    patches = tf.reshape(patches, [batch_size, -1, patch_dims])
+    patches = patches.reshape(batch_size, -1, patch_dims)
     return patches
 
   
