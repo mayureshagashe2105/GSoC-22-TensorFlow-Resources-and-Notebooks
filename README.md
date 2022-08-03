@@ -61,9 +61,12 @@ Blog Post:
 - [ ] Apply the ViT to the Segmentation task.
 
 ### Week 6:
-##### Tasks
+#### Tasks
 - [x] Figure out how to use ViTs with patch based learning.
 - [x] Fix bug in score function from ViT.
 - [ ] Use optax for optimizer state handling.
 - [ ] Fix inappropriate accuracy bug.
 - [ ] Document the ViTs.
+
+### Week 7:
+#### Tasks:
