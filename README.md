@@ -66,3 +66,4 @@ Blog Post:
 - [x] Fix bug in score function from ViT.
 - [ ] Use optax for optimizer state handling.
 - [ ] Fix inappropriate accuracy bug.
+- [ ] Document the ViTs.
