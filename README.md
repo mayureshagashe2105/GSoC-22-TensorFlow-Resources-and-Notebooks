@@ -65,7 +65,7 @@ Blog Post:
 - [x] Figure out how to use ViTs with patch based learning.
 - [x] Fix bug in score function from ViT.
 - [x] Use optax for optimizer state handling.
-- [ ] Fix inappropriate accuracy bug.
+- [x] Fix inappropriate accuracy bug.
 - [ ] Document the ViTs.
 
 ### Week 7:
