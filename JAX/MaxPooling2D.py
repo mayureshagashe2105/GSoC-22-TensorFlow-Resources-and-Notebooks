@@ -32,7 +32,7 @@ class MaxPool2D:
   
 
 
-  @staticmethod
+  @classmethod
   @jit
   def multiply_fn(x, y):
     return jnp.multiply(x, y)
