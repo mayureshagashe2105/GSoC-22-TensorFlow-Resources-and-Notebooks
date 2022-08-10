@@ -38,3 +38,4 @@ class ConvLayer:
   def __back_prop(self, grad_from_next_layer, lr):
     dl_dw = jnp.einsum("ijklmn, ijklmn -> jklmn", self.conv_grad, grad_from_next_layer)
     self.filters -= (lr * dl_dw)
+    
