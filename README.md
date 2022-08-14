@@ -69,5 +69,5 @@ Blog Post:
 
 ### Week 7:
 #### Tasks:
-- [ ] Add docstrings to ViTs.
+- [x] Add docstrings to ViTs.
 - [ ] Add dropout layer and support for dropout_rng.
