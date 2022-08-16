@@ -71,3 +71,4 @@ Blog Post:
 #### Tasks:
 - [x] Add docstrings to ViTs.
 - [ ] Add dropout layer and support for dropout_rng.
+- [ ] Publish a package.
