@@ -65,7 +65,7 @@ Blog Post:
 - [x] Fix bug in score function from ViT.
 - [x] Use optax for optimizer state handling.
 - [x] Fix inappropriate accuracy bug.
-- [ ] Document the ViTs.
+- [x] Document the ViTs.
 
 ### Week 7:
 #### Tasks:
