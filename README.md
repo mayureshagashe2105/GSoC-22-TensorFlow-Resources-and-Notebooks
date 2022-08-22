@@ -73,3 +73,4 @@ Blog Post:
 - [x] Add dropout layer and support for dropout_rng.
 - [ ] Publish a release.
 - [ ] Add eval metrics.
+- [ ] Add tensorboard pulgin.
