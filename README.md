@@ -67,9 +67,13 @@ Blog Post:
 - [x] Fix inappropriate accuracy bug.
 - [x] Document the ViTs.
 
-### Week 7:
+### Week 7 - 9:
 #### Tasks:
 - [x] Add docstrings to ViTs.
 - [x] Add dropout layer and support for dropout_rng.
-- [ ] Publish a release.
 - [x] Add tensorboard pulgin.
+
+### Week 10:
+#### Tasks:
+- [ ] Publish a release.
+
