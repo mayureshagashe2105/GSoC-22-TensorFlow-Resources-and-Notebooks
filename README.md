@@ -72,5 +72,4 @@ Blog Post:
 - [x] Add docstrings to ViTs.
 - [x] Add dropout layer and support for dropout_rng.
 - [ ] Publish a release.
-- [ ] Add eval metrics.
-- [ ] Add tensorboard pulgin.
+- [x] Add tensorboard pulgin.
