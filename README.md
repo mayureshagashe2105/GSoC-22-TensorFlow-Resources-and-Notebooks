@@ -75,5 +75,10 @@ Blog Post:
 
 ### Week 10:
 #### Tasks:
-- [ ] Publish a release.
+- [x] Publish a release.
+
+
+## Final Submission
+
+
 
