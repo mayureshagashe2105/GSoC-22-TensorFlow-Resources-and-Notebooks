@@ -79,6 +79,4 @@ Blog Post:
 
 
 ## Final Submission
-Write-up
-
-
+- [ ] Write-up.
