@@ -37,7 +37,7 @@ Pseudo Segmentation is a process of creation of fake mask maps by using the clas
 ## Access the deployed App
 
 App:
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mayureshagashe2105-gsoc-22-tensorflow-resources-app-home-esfrdc.streamlitapp.com/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mayureshagashe2105-gsoc-22-tensorflow-resources-app-home-m9lj57.streamlitapp.com/)
 
 ## Run the App Locally
 1. Clone the repository.
